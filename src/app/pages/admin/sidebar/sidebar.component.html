@@ -1,0 +1,32 @@
+<mat-card>
+    <mat-action-list>
+      <div mat-subheader>Menu</div>
+      <button routerLink = "/admin" mat-list-item>
+        <mat-icon mat-list-icon>home</mat-icon> Módulo Inicio
+      </button>
+      <button mat-list-item routerLink = "/admin/profile">
+        <mat-icon mat-list-icon>account_circle</mat-icon> Módulo Perfil
+      </button>
+      <button mat-list-item routerLink = "/admin/airplanes">
+        <mat-icon mat-list-icon>airplanemode_active</mat-icon> Módulo Avion
+      </button>           
+      <button mat-list-item routerLink = "/admin/pilots">
+        <mat-icon mat-list-icon>person_pin</mat-icon> Módulo Piloto
+      </button>
+      <button mat-list-item routerLink = "/admin/passengers">
+        <mat-icon mat-list-icon>person_pin_circle</mat-icon> Módulo Pasajero
+      </button>
+      <button mat-list-item routerLink = "/admin/flight">
+        <mat-icon mat-list-icon>flight_takeoff</mat-icon> Módulo Vuelo
+      </button>
+      <button mat-list-item routerLink = "/admin/booking">
+        <mat-icon mat-list-icon>people</mat-icon>Módulo Reserva
+      </button>
+      <button mat-list-item routerLink = "/admin/invoices">
+        <mat-icon mat-list-icon>list_alt</mat-icon> Módulo Factura
+      </button>
+      <button mat-list-item (click) = "logOut()">
+        <mat-icon mat-list-icon>logout</mat-icon>Salir
+      </button>
+    </mat-action-list>
+  </mat-card>

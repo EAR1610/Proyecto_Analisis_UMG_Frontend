@@ -1,0 +1,74 @@
+<mat-card>
+    <h1>Agregar nuevo Avión</h1>
+    <mat-card-content>
+      <div class="bootstrap-wrapper">
+        <div class="row">
+          <div class="col-md-8 offset-md-2">
+            <form (ngSubmit)= "formSubmit()">
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Marca</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="marca"
+                matInput
+                placeholder="Digite la marca del avión"
+                [(ngModel)] = "airplane.marca"
+                >
+              </mat-form-field>
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Modelo</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="modelo"
+                matInput
+                placeholder="Digite el modelo del avión"
+                [(ngModel)] = "airplane.modelo"
+                >
+              </mat-form-field>
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Capacidad</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="capacidad"
+                matInput
+                placeholder="Digite la capacidad del avión"
+                [(ngModel)] = "airplane.capacidad"
+                >
+              </mat-form-field>
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Fabricante</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="fabricante"
+                matInput
+                placeholder="Digite el fabricante del avión"
+                [(ngModel)] = "airplane.fabricante"
+                >
+              </mat-form-field>  
+              <mat-form-field appearance="fill">
+                <mat-label>Fecha de Fabricación</mat-label>
+                <input required autofocus matInput [matDatepicker]="picker" 
+                  [(ngModel)]="airplane.anioFabricacion" (dateChange)="onDateChange($event)">
+                <mat-hint>YYYY-MM-DD</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+               
+
+              <div class="container text-center mt15">
+                <button mat-raised-button color="primary">Guardar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card> 
