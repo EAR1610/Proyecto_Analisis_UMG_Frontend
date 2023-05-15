@@ -1,0 +1,40 @@
+ <h2>Editar avión</h2>
+
+ <form [formGroup]="avionForm" (ngSubmit)="onSubmit()">
+ 
+   <div class="form-group">
+     <label for="nombre">Marca:</label>
+     <input type="text" formControlName="marca" class="form-control" id="marca" [(ngModel)] = "airplane.marca">
+   </div>
+ 
+   <div class="form-group">
+     <label for="modelo">Modelo:</label>
+     <input type="text" formControlName="modelo" class="form-control" id="modelo" [(ngModel)] = "airplane.modelo">
+   </div>
+
+   <div class="form-group">
+    <label for="modelo">Capacidad:</label>
+    <input type="text" formControlName="capacidad" class="form-control" id="capacidad" [(ngModel)] = "airplane.capacidad">
+  </div>
+ 
+   <div class="form-group">
+     <label for="fabricante">Fabricante:</label>
+     <input type="text" formControlName="fabricante" class="form-control" id="fabricante" [(ngModel)] = "airplane.fabricante">
+   </div>
+ 
+   <div class="form-group">
+     <label for="anio">Año de fabricación:</label>
+     <input type="text" formControlName="anioFabricacion" class="form-control" id="anioFabricacion" [(ngModel)] = "airplane.anioFabricacion">
+   </div>
+
+   <div class="form-group">
+    <label for="fabricante">Activo:</label>
+    <input type="text" formControlName="activo" class="form-control" id="activo" [(ngModel)] = "airplane.activo">
+  </div>
+  
+  <div class="btns">
+    <button type="submit" mat-raised-button color="primary">EDITAR AVION</button>
+    <button routerLink="/admin/airplanes" mat-raised-button color="accent">REGRESAR</button>
+  </div>
+ </form>
+ 
