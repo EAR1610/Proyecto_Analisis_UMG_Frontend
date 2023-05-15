@@ -9,7 +9,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field'
 import {MatInputModule} from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -34,6 +34,7 @@ import { SidebarComponent } from './pages/admin/sidebar/sidebar.component';
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { AirplaneComponent } from './pages/admin/airplane/airplane.component';
 import { AddAirplaneComponent } from './pages/admin/add-airplane/add-airplane.component';
+import { UpdateAirplaneComponent } from './pages/admin/update-airplane/update-airplane.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { AddAirplaneComponent } from './pages/admin/add-airplane/add-airplane.co
     SidebarComponent,
     WelcomeComponent,
     AirplaneComponent,
-    AddAirplaneComponent
+    AddAirplaneComponent,
+    UpdateAirplaneComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +69,8 @@ import { AddAirplaneComponent } from './pages/admin/add-airplane/add-airplane.co
     MatTableModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    ReactiveFormsModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

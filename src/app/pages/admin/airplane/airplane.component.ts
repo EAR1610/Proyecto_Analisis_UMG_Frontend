@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {  Router } from '@angular/router';
 import { AirplaneService } from 'src/app/services/airplane.service';
 import Swal from 'sweetalert2';
 
@@ -13,7 +14,7 @@ export class AirplaneComponent implements OnInit{
   airplanes: any[]  = [];
   displayedColumns: string[] = ['avionId', 'marca', 'modelo', 'capacidad', 'fabricante', 'anioFabricacion', 'activo', 'acciones'];
 
-  constructor(private airplaneService:AirplaneService) {}
+  constructor(private airplaneService:AirplaneService, private router:Router) {}
 
   ngOnInit() : void {
     this.cargarAviones();
@@ -33,7 +34,9 @@ export class AirplaneComponent implements OnInit{
   }
 
   editarAvion(avionId:number){
-    console.log(`Editando avión:  ${avionId}`);
+    this.airplaneService.listAirplane(avionId).subscribe((avion:any) => {
+      this.router.navigate(['/admin/update-airplane'], { state: { avion} });
+    })
   }
 
   eliminarAvion(avionId: number): void {

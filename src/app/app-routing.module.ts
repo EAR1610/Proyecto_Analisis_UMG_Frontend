@@ -11,6 +11,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { AirplaneComponent } from './pages/admin/airplane/airplane.component';
 import { AddAirplaneComponent } from './pages/admin/add-airplane/add-airplane.component';
+import { UpdateAirplaneComponent } from './pages/admin/update-airplane/update-airplane.component';
 
 const routes: Routes = [
   {
@@ -48,6 +49,10 @@ const routes: Routes = [
       {
         path: 'add-airplane',
         component: AddAirplaneComponent
+      },
+      {
+        path: 'update-airplane',
+        component: UpdateAirplaneComponent
       }
     ]
   },

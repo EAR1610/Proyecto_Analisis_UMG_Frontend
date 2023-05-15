@@ -54,17 +54,21 @@
                 >
               </mat-form-field>  
               <mat-form-field appearance="fill">
-                <mat-label>Fecha de Fabricación</mat-label>
-                <input required autofocus matInput [matDatepicker]="picker" 
-                  [(ngModel)]="airplane.anioFabricacion" (dateChange)="onDateChange($event)">
-                <mat-hint>YYYY-MM-DD</mat-hint>
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
+                <mat-label>Año de Fabricación</mat-label>
+                <input 
+                  required
+                  type="text"
+                  name="anioFabricacion"
+                  matInput
+                  placeholder="DIgite la fecha de Fabricación del avión"
+                  [(ngModel)] = "airplane.anioFabricacion"
+                >
               </mat-form-field>
                
 
-              <div class="container text-center mt15">
-                <button mat-raised-button color="primary">Guardar</button>
+              <div class="btns">
+                <button type="submit" mat-raised-button color="primary">EDITAR AVION</button>
+                <button routerLink="/admin/airplanes" mat-raised-button color="accent">REGRESAR</button>
               </div>
             </form>
           </div>
