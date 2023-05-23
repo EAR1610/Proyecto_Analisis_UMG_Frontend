@@ -19,6 +19,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatSelectModule} from '@angular/material/select'
 
 
 
@@ -35,6 +36,12 @@ import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { AirplaneComponent } from './pages/admin/airplane/airplane.component';
 import { AddAirplaneComponent } from './pages/admin/add-airplane/add-airplane.component';
 import { UpdateAirplaneComponent } from './pages/admin/update-airplane/update-airplane.component';
+import { PilotComponent } from './pages/admin/pilot/pilot.component';
+import { AddPilotComponent } from './pages/admin/add-pilot/add-pilot.component';
+import { UpdatePilotComponent } from './pages/admin/update-pilot/update-pilot.component';
+import { FlightComponent } from './pages/admin/flight/flight.component';
+import { AddFlightComponent } from './pages/admin/add-flight/add-flight.component';
+import { UpdateFlightComponent } from './pages/admin/update-flight/update-flight.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +57,13 @@ import { UpdateAirplaneComponent } from './pages/admin/update-airplane/update-ai
     WelcomeComponent,
     AirplaneComponent,
     AddAirplaneComponent,
-    UpdateAirplaneComponent
+    UpdateAirplaneComponent,
+    PilotComponent,
+    AddPilotComponent,
+    UpdatePilotComponent,
+    FlightComponent,
+    AddFlightComponent,
+    UpdateFlightComponent
   ],
   imports: [
     BrowserModule,
@@ -71,6 +84,7 @@ import { UpdateAirplaneComponent } from './pages/admin/update-airplane/update-ai
     MatNativeDateModule,
     MatPaginatorModule,
     ReactiveFormsModule,
+    MatSelectModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

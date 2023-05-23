@@ -32,6 +32,7 @@ export class UpdateAirplaneComponent implements OnInit{
     }
 
     ngOnInit() {
+      console.log(history.state);
       const avion = history.state.avion;
       this.airplane = avion;
     }

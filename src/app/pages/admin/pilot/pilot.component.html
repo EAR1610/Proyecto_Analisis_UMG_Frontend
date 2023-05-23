@@ -1,0 +1,74 @@
+<mat-card>
+    <mat-list>
+      <div mat-subheader>
+        Todos los pilotos
+      </div>
+      <div class="mat-elevation-z8" style="margin-top: 10px">
+        <table mat-table [dataSource]="pilots" class="mat-elevation-z8">
+  
+          <!--- Definir las columnas de la tabla -->
+          <ng-container matColumnDef="pilotoId">
+            <th mat-header-cell *matHeaderCellDef> Id </th>
+            <td mat-cell *matCellDef="let element"> {{element.pilotoId}} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="apellido">
+            <th mat-header-cell *matHeaderCellDef> Apellido </th>
+            <td mat-cell *matCellDef="let element"> {{element.apellido}} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="fechaNacimiento">
+            <th mat-header-cell *matHeaderCellDef> Fecha de Nacimiento </th>
+            <td mat-cell *matCellDef="let element"> {{element.fechaNacimiento}} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="nacionalidad">
+            <th mat-header-cell *matHeaderCellDef> Nacionalidad </th>
+            <td mat-cell *matCellDef="let element"> {{element.nacionalidad}} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="horasVuelo">
+            <th mat-header-cell *matHeaderCellDef> Horas de Vuelo </th>
+            <td mat-cell *matCellDef="let element"> {{element.horasVuelo}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="fechaContratacion">
+            <th mat-header-cell *matHeaderCellDef> Fecha de contratacion </th>
+            <td mat-cell *matCellDef="let element"> {{element.fechaContratacion}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="fechaVencimientoLicencia">
+            <th mat-header-cell *matHeaderCellDef> F.V Licencia </th>
+            <td mat-cell *matCellDef="let element"> {{element.fechaVencimientoLicencia}} </td>
+          </ng-container>
+          
+          <!-- Columna para los iconos de actualizar y eliminar -->
+          <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef> Acciones </th>
+            <td mat-cell *matCellDef="let element">
+              <button mat-icon-button  (click)="editarPiloto(element.pilotoId)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button (click)="eliminarPiloto(element.pilotoId)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+  
+          <!--- Renderizar las filas de la tabla -->
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+    </mat-list>
+  
+    <div class="container text-center mt20">
+      <button routerLink="/admin/add-pilot" mat-raised-button color="primary">Agregar Piloto</button>
+    </div>
+  </mat-card>
+  

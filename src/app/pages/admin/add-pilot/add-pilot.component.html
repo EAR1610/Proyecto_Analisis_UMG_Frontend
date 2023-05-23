@@ -1,0 +1,100 @@
+<mat-card>
+    <h1>Agregar nuevo Avión</h1>
+    <mat-card-content>
+      <div class="bootstrap-wrapper">
+        <div class="row">
+          <div class="col-md-8 offset-md-2">
+            <form (ngSubmit)= "formSubmit()">
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="nombre"
+                matInput
+                placeholder="Digite el nombre del piloto"
+                [(ngModel)] = "pilot.nombre"
+                >
+              </mat-form-field>
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Apellido</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="apellido"
+                matInput
+                placeholder="Digite el apellido del piloto"
+                [(ngModel)] = "pilot.apellido"
+                >
+              </mat-form-field>
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Fecha de Nacimiento</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="fechaNacimiento"
+                matInput
+                placeholder="Digite la fecha de nacimiento del piloto"
+                [(ngModel)] = "pilot.fechaNacimiento"
+                >
+              </mat-form-field>
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Nacionalidad</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="nacionalidad"
+                matInput
+                placeholder="Digite la nacionalidad del piloto"
+                [(ngModel)] = "pilot.nacionalidad"
+                >
+              </mat-form-field>  
+              <mat-form-field appearance="outline">
+                <mat-label>Horas de vuelo</mat-label>
+                <input 
+                  required
+                  type="text"
+                  name="horasVuelo"
+                  matInput
+                  placeholder="DIgite las horas de vuelo del piloto"
+                  [(ngModel)] = "pilot.horasVuelo"
+                >
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Fecha Contratación</mat-label>
+                <input 
+                  required
+                  type="text"
+                  name="fechaContratacion"
+                  matInput
+                  placeholder="DIgite la fecha de contratación del piloto"
+                  [(ngModel)] = "pilot.fechaContratacion"
+                >
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Fecha Vencimiento Licencia</mat-label>
+                <input 
+                  required
+                  type="text"
+                  name="fechaVencimientoLicencia"
+                  matInput
+                  placeholder="Digite la fecha de vencimiento de licencia del piloto"
+                  [(ngModel)] = "pilot.fechaVencimientoLicencia"
+                >
+              </mat-form-field>
+               
+
+              <div class="btns">
+                <button type="submit" mat-raised-button color="primary">AGREGART PILOTO</button>
+                <button routerLink="/admin/pilots" mat-raised-button color="accent">REGRESAR</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card> 

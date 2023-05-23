@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { SignupComponent } from './pages/signup/signup.component';
@@ -12,6 +12,12 @@ import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { AirplaneComponent } from './pages/admin/airplane/airplane.component';
 import { AddAirplaneComponent } from './pages/admin/add-airplane/add-airplane.component';
 import { UpdateAirplaneComponent } from './pages/admin/update-airplane/update-airplane.component';
+import { PilotComponent } from './pages/admin/pilot/pilot.component';
+import { AddPilotComponent } from './pages/admin/add-pilot/add-pilot.component';
+import { UpdatePilotComponent } from './pages/admin/update-pilot/update-pilot.component';
+import { FlightComponent } from './pages/admin/flight/flight.component';
+import { AddFlightComponent } from './pages/admin/add-flight/add-flight.component';
+import { UpdateFlightComponent } from './pages/admin/update-flight/update-flight.component';
 
 const routes: Routes = [
   {
@@ -53,6 +59,30 @@ const routes: Routes = [
       {
         path: 'update-airplane',
         component: UpdateAirplaneComponent
+      },
+      {
+        path: 'pilots',
+        component: PilotComponent,
+      } ,
+      {
+        path: 'add-pilot',
+        component: AddPilotComponent,
+      },
+      {
+        path: 'update-pilot',
+        component: UpdatePilotComponent,
+      },
+      {
+        path: 'flights',
+        component: FlightComponent,
+      },
+      {
+        path: 'add-flight',
+        component: AddFlightComponent,
+      },
+      {
+        path: 'update-flight',
+        component: UpdateFlightComponent,
       }
     ]
   },
