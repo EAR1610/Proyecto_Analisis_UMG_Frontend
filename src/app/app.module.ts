@@ -42,6 +42,8 @@ import { UpdatePilotComponent } from './pages/admin/update-pilot/update-pilot.co
 import { FlightComponent } from './pages/admin/flight/flight.component';
 import { AddFlightComponent } from './pages/admin/add-flight/add-flight.component';
 import { UpdateFlightComponent } from './pages/admin/update-flight/update-flight.component';
+import { ReservationComponent } from './pages/admin/reservation/reservation.component';
+import { SeeReservationComponent } from './pages/admin/see-reservation/see-reservation.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +65,9 @@ import { UpdateFlightComponent } from './pages/admin/update-flight/update-flight
     UpdatePilotComponent,
     FlightComponent,
     AddFlightComponent,
-    UpdateFlightComponent
+    UpdateFlightComponent,
+    ReservationComponent,
+    SeeReservationComponent
   ],
   imports: [
     BrowserModule,

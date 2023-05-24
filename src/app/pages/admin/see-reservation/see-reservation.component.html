@@ -1,0 +1,83 @@
+<h2>Ver Reservación</h2>
+
+<form [formGroup]="reservationForm">
+
+  <div class="form-group">
+    <label for="modelo">Nombre del pasajero:</label>
+    <input type="text" formControlName="pasajero" class="form-control" id="pasajero" [readOnly]="true" [(ngModel)] = "reservation.pasajero">
+  </div>
+
+  <div class="form-group">
+    <label for="modelo">Nacionalidad del pasajero:</label>
+    <input type="text" formControlName="nacionalidad" class="form-control" id="nacionalidad" [readOnly]="true" [(ngModel)] = "reservation.nacionalidad">
+  </div>
+
+  <div class="form-group">
+    <label for="modelo">Fecha de Reserva:</label>
+    <input type="text" formControlName="fechaReserva" class="form-control" id="fechaReserva" [readOnly]="true" [(ngModel)] = "reservation.fechaReserva">
+  </div>
+
+  <div class="form-group">
+   <label for="modelo">Clase:</label>
+   <input type="text" formControlName="nombreClase" class="form-control" id="nombreClase" [readOnly]="true" [(ngModel)] = "reservation.nombreClase">
+ </div>
+
+  <div class="form-group">
+    <label for="fabricante">Precio:</label>
+    <input type="text" formControlName="precioClase" class="form-control" id="precioClase" [readOnly]="true" [(ngModel)] = "reservation.precioClase">
+  </div>
+
+  <div class="form-group">
+   <label for="fabricante">Número de asiento:</label>
+   <input type="text" formControlName="numeroAsiento" class="form-control" id="numeroAsiento" [readOnly]="true" [(ngModel)] = "reservation.numeroAsiento">
+ </div>
+
+  <div class="form-group">
+   <label for="fabricante">Número de embarque:</label>
+   <input type="text" formControlName="numeroEmbarque" class="form-control" id="numeroEmbarque" [readOnly]="true" [(ngModel)] = "reservation.numeroEmbarque">
+ </div>
+
+  <div class="form-group">
+   <label for="fabricante">Puerta de Embarque:</label>
+   <input type="text" formControlName="puertaEmbarque" class="form-control" id="puertaEmbarque" [readOnly]="true" [(ngModel)] = "reservation.puertaEmbarque">
+ </div>
+
+  <div class="form-group">
+   <label for="fabricante">Cantidad de mochilas:</label>
+   <input type="text" formControlName="numeroMochila" class="form-control" id="numeroMochila" [readOnly]="true" [(ngModel)] = "reservation.numeroMochila">
+ </div>
+
+  <div class="form-group">
+   <label for="fabricante">Peso total de las mochilas:</label>
+   <input type="text" formControlName="pesoMochila" class="form-control" id="pesoMochila" [readOnly]="true" [(ngModel)] = "reservation.pesoMochila">
+ </div>
+
+  <div class="form-group">
+   <label for="fabricante">Lugar de Origen:</label>
+   <input type="text" formControlName="lugarOrigen" class="form-control" id="lugarOrigen" [readOnly]="true" [(ngModel)] = "reservation.lugarOrigen">
+ </div>
+
+  <div class="form-group">
+   <label for="fabricante">Lugarde Destino</label>
+   <input type="text" formControlName="lugarDestino" class="form-control" id="lugarDestino" [readOnly]="true" [(ngModel)] = "reservation.lugarDestino">
+ </div>
+
+  <div class="form-group">
+   <label for="fabricante">Fecha de Salida:</label>
+   <input type="text" formControlName="fechaSalida" class="form-control" id="fechaSalida" [readOnly]="true" [(ngModel)] = "reservation.fechaSalida">
+ </div>
+
+  <div class="form-group">
+   <label for="fabricante">Fecha de Llegada:</label>
+   <input type="text" formControlName="fechaLlegada" class="form-control" id="fechaLlegada" [readOnly]="true" [(ngModel)] = "reservation.fechaLlegada">
+ </div>
+
+  <div class="form-group">
+   <label for="fabricante">Reserva Ingresada por el Usuario:</label>
+   <input type="text" formControlName="username" class="form-control" id="username" [readOnly]="true" [(ngModel)] = "reservation.username">
+ </div>
+
+ <div class="btns">
+   <button routerLink="/admin/reservations" mat-raised-button color="accent">REGRESAR</button>
+ </div>
+</form>
