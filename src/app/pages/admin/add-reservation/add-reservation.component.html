@@ -1,0 +1,83 @@
+<!-- <mat-card>
+    <h1>Agregar nuevo Vuelo</h1>
+    <mat-card-content>
+      <div class="bootstrap-wrapper">
+        <div class="row">
+          <div class="col-md-8 offset-md-2">
+            <form (ngSubmit)= "formSubmit()">                               
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Lugar Origen</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="lugarOrigen"
+                matInput
+                placeholder="Digite el lugar de origen del vuelo"
+                [(ngModel)] = "flight.lugarOrigen"
+                >
+              </mat-form-field>
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Lugar Destino</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="lugarDestino"
+                matInput
+                placeholder="Digite el lugar del destino del vuelo"
+                [(ngModel)] = "flight.lugarDestino"
+                >
+              </mat-form-field>
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Fecha de Salida</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="fechaSalida"
+                matInput
+                placeholder="Digite la fecha de Salida del vuelo"
+                [(ngModel)] = "flight.fechaSalida"
+                >
+              </mat-form-field>
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Fecha de Llegada</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="fechaLlegada"
+                matInput
+                placeholder="Digite la fecha de llegada del vuelo"
+                [(ngModel)] = "flight.fechaLlegada"
+                >
+                
+              </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Seleccionar Avion</mat-label>
+                    <mat-select name="selectedAirplane" [(ngModel)]="selectedAirplane">
+                        <mat-option *ngFor="let airplane of airplanes" [value]="airplane">
+                        {{airplane.marca}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                  <mat-label>Seleccionar Piloto</mat-label>
+                  <mat-select name="selectedPilot" [(ngModel)]="selectedPilot">
+                    <mat-option *ngFor="let pilot of pilots" [value]="pilot">
+                      {{pilot.nombre}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>                                           
+
+              <div class="btns">
+                <button type="submit" mat-raised-button color="primary">AGREGAR VUELO</button>
+                <button routerLink="/admin/flights" mat-raised-button color="accent">REGRESAR</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>  -->

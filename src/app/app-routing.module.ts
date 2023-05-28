@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { SignupComponent } from './pages/signup/signup.component';
@@ -20,6 +20,10 @@ import { AddFlightComponent } from './pages/admin/add-flight/add-flight.componen
 import { UpdateFlightComponent } from './pages/admin/update-flight/update-flight.component';
 import { ReservationComponent } from './pages/admin/reservation/reservation.component';
 import { SeeReservationComponent } from './pages/admin/see-reservation/see-reservation.component';
+import { AddReservationComponent } from './pages/admin/add-reservation/add-reservation.component';
+import { PassengerComponent } from './pages/admin/passenger/passenger.component';
+import { AddPassengerComponent } from './pages/admin/add-passenger/add-passenger.component';
+import { UpdatePassengerComponent } from './pages/admin/update-passenger/update-passenger.component';
 
 const routes: Routes = [
   {
@@ -93,6 +97,22 @@ const routes: Routes = [
       {
         path: 'see-reservation',
         component: SeeReservationComponent,
+      },
+      {
+        path: 'add-reservation',
+        component: AddReservationComponent,
+      },
+      {
+        path: 'passengers',
+        component: PassengerComponent,
+      },
+      {
+        path: 'add-passenger',
+        component: AddPassengerComponent,
+      },
+      {
+        path: 'update-passenger',
+        component: UpdatePassengerComponent,
       }
     ]
   },

@@ -44,6 +44,10 @@ import { AddFlightComponent } from './pages/admin/add-flight/add-flight.componen
 import { UpdateFlightComponent } from './pages/admin/update-flight/update-flight.component';
 import { ReservationComponent } from './pages/admin/reservation/reservation.component';
 import { SeeReservationComponent } from './pages/admin/see-reservation/see-reservation.component';
+import { AddReservationComponent } from './pages/admin/add-reservation/add-reservation.component';
+import { PassengerComponent } from './pages/admin/passenger/passenger.component';
+import { AddPassengerComponent } from './pages/admin/add-passenger/add-passenger.component';
+import { UpdatePassengerComponent } from './pages/admin/update-passenger/update-passenger.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +71,11 @@ import { SeeReservationComponent } from './pages/admin/see-reservation/see-reser
     AddFlightComponent,
     UpdateFlightComponent,
     ReservationComponent,
-    SeeReservationComponent
+    SeeReservationComponent,
+    AddReservationComponent,    
+    PassengerComponent, 
+    AddPassengerComponent, 
+    UpdatePassengerComponent
   ],
   imports: [
     BrowserModule,

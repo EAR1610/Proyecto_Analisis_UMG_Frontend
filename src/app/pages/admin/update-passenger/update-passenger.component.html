@@ -1,0 +1,45 @@
+<h2>Editar Pasajero</h2>
+
+<form [formGroup]="passengerForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label for="nombre">Nombre:</label>
+    <input type="text" formControlName="nombre" class="form-control" id="nombre" [(ngModel)] = "pasajero.nombre">
+  </div>
+
+  <div class="form-group">
+    <label for="modelo">Apellido:</label>
+    <input type="text" formControlName="apellido" class="form-control" id="apellido" [(ngModel)] = "pasajero.apellido">
+  </div>
+
+  <div class="form-group">
+   <label for="modelo">Fecha Nacimiento:</label>
+   <input type="text" formControlName="fechaNacimiento" class="form-control" id="fechaNacimiento" [(ngModel)] = "pasajero.fechaNacimiento">
+ </div>
+
+  <div class="form-group">
+    <label for="fabricante">Nacionalidad:</label>
+    <input type="text" formControlName="nacionalidad" class="form-control" id="nacionalidad" [(ngModel)] = "pasajero.nacionalidad">
+  </div>
+
+  <div class="form-group">
+   <label for="fabricante">Tipo de Identificación:</label>
+   <input type="text" formControlName="tipoIdentificacion" class="form-control" id="tipoIdentificacion" [(ngModel)] = "pasajero.tipoIdentificacion">
+ </div>
+
+ <div class="form-group">
+    <label for="fabricante">Número de Identificación:</label>
+    <input type="text" formControlName="numeroIdentificacion" class="form-control" id="numeroIdentificacion" [(ngModel)] = "pasajero.numeroIdentificacion">
+  </div>
+
+  <div class="form-group">
+    <label for="fabricante">Título del pasajero:</label>
+    <input type="text" formControlName="titulo" class="form-control" id="titulo" [(ngModel)] = "pasajero.titulo">
+  </div>
+ 
+ <div class="btns">
+   <button type="submit" mat-raised-button color="primary">EDITAR PASAJERO</button>
+   <button routerLink="/admin/pilots" mat-raised-button color="accent">REGRESAR</button>
+ </div>
+</form>
+

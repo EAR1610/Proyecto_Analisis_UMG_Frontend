@@ -1,0 +1,100 @@
+<mat-card>
+    <h1>Agregar nuevo Pasajero</h1>
+    <mat-card-content>
+      <div class="bootstrap-wrapper">
+        <div class="row">
+          <div class="col-md-8 offset-md-2">
+            <form (ngSubmit)= "formSubmit()">
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="nombre"
+                matInput
+                placeholder="Digite el nombre del pasajero"
+                [(ngModel)] = "passenger.nombre"
+                >
+              </mat-form-field>
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Apellido</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="apellido"
+                matInput
+                placeholder="Digite el apellido del pasajero"
+                [(ngModel)] = "passenger.apellido"
+                >
+              </mat-form-field>
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Fecha de Nacimiento</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="fechaNacimiento"
+                matInput
+                placeholder="Digite la fecha de nacimiento del piloto"
+                [(ngModel)] = "passenger.fechaNacimiento"
+                >
+              </mat-form-field>
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Nacionalidad</mat-label>
+                <input
+                required
+                autofocus
+                type="text"
+                name="nacionalidad"
+                matInput
+                placeholder="Digite la nacionalidad del pasajero"
+                [(ngModel)] = "passenger.nacionalidad"
+                >
+              </mat-form-field>                
+              <mat-form-field appearance="outline">
+                <mat-label>Tipo de Identificación</mat-label>
+                <input 
+                  required
+                  type="text"
+                  name="tipoIdentificacion"
+                  matInput
+                  placeholder="Digite el tipo de identificación del pasajero"
+                  [(ngModel)] = "passenger.tipoIdentificacion"
+                >
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Número de Identificación del Pasajero</mat-label>
+                <input 
+                  required
+                  type="text"
+                  name="numeroIdentificacion"
+                  matInput
+                  placeholder="Digite el Número de Identificación del pasajero"
+                  [(ngModel)] = "passenger.numeroIdentificacion"
+                >
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Título del Pasajero</mat-label>
+                <input 
+                  required
+                  type="text"
+                  name="titulo"
+                  matInput
+                  placeholder="Digite el título del pasajero"
+                  [(ngModel)] = "passenger.titulo"
+                >
+              </mat-form-field>               
+
+              <div class="btns">
+                <button type="submit" mat-raised-button color="primary">AGREGAR PASAJERO</button>
+                <button routerLink="/admin/passengers" mat-raised-button color="accent">REGRESAR</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card> 
