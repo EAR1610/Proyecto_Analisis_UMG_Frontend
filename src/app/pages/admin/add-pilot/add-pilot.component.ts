@@ -14,11 +14,11 @@ export class AddPilotComponent implements OnInit{
   pilot = {
     nombre: '',
     apellido: '',
-    fechaNacimiento: '',
+    fechaNacimiento: null,
     nacionalidad: '',
     horasVuelo: '',
-    fechaContratacion: '',
-    fechaVencimientoLicencia: '',
+    fechaContratacion: null,
+    fechaVencimientoLicencia: null,
   }
 
   constructor(private pilotService: PilotService, private snack:MatSnackBar, private router:Router){}
@@ -27,8 +27,22 @@ export class AddPilotComponent implements OnInit{
 
   }
 
+  validateHorasVuelo(event: any) {
+    const inputValue = event.target.value;
+    const isNumber = /^\d+$/.test(inputValue);
+
+    if (!isNumber) {
+      event.target.value = this.pilot.horasVuelo;
+      this.snack.open("Por favor, ingresar solamente números!",'',{
+        duration:3000
+      })
+    } else {
+      this.pilot.horasVuelo = inputValue;
+    }
+  }
+
   formSubmit(){
-    if(this.pilot.nombre == '' || this.pilot.apellido == '' || this.pilot.fechaNacimiento == '' || this.pilot.nacionalidad == '' || this.pilot.horasVuelo == '' || this.pilot.fechaContratacion == '', this.pilot.fechaVencimientoLicencia == ''){
+    if(this.pilot.nombre == '' || this.pilot.apellido == '' || this.pilot.fechaNacimiento == null || this.pilot.nacionalidad == '' || this.pilot.horasVuelo == '' || this.pilot.fechaContratacion == null, this.pilot.fechaVencimientoLicencia == null){
       this.snack.open('Debes completar todos los campos', 'Cerrar', {
         duration: 3000
     })
@@ -40,11 +54,11 @@ export class AddPilotComponent implements OnInit{
     (dato:any) => {
       this.pilot.nombre = '';
       this.pilot.apellido = '';
-      this.pilot.fechaNacimiento = '';
+      this.pilot.fechaNacimiento = null;
       this.pilot.nacionalidad = '';
       this.pilot.horasVuelo = '';
-      this.pilot.fechaContratacion = '';
-      this.pilot.fechaVencimientoLicencia = '';
+      this.pilot.fechaContratacion = null;
+      this.pilot.fechaVencimientoLicencia = null;
       Swal.fire('Piloto agregado', 'El piloto ha sido agregado con éxito', 'success');
       this.router.navigate(['/admin/pilots']);
     },

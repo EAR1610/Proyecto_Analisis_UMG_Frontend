@@ -13,8 +13,23 @@
   </div>
 
   <div class="form-group">
-   <label for="modelo">Fecha Nacimiento:</label>
-   <input type="text" formControlName="fechaNacimiento" class="form-control" id="fechaNacimiento" [(ngModel)] = "pilot.fechaNacimiento">
+    <mat-label>Fecha de Nacimiento</mat-label>
+      <input 
+        required
+        type="text"
+        name="fechaNacimiento"
+        id="fechaNacimiento"
+        matInput
+        placeholder="Digite la fecha de nacimiento del piloto"
+        formControlName="fechaNacimiento"
+        [(ngModel)] = "pilot.fechaNacimiento"
+        [matDatepicker]="picker"
+      >
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker">
+        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+      </mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>      
  </div>
 
   <div class="form-group">
@@ -28,13 +43,41 @@
  </div>
 
  <div class="form-group">
-    <label for="fabricante">Fecha Contratación:</label>
-    <input type="text" formControlName="fechaContratacion" class="form-control" id="fechaContratacion" [(ngModel)] = "pilot.fechaContratacion">
+    <mat-label>Fecha Contratación</mat-label>
+    <input 
+      required
+      type="text"
+      name="fechaContratacion"
+      formControlName="fechaContratacion"
+      matInput
+      placeholder="Digite la fecha de contratación del piloto"
+      [(ngModel)] = "pilot.fechaContratacion"
+      [matDatepicker]="pickerFC"
+    >
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="pickerFC">
+      <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+    </mat-datepicker-toggle>
+    <mat-datepicker #pickerFC></mat-datepicker>
   </div>
 
   <div class="form-group">
-    <label for="fabricante">Fecha de Vencimiento de Licencia:</label>
-    <input type="text" formControlName="fechaVencimientoLicencia" class="form-control" id="fechaVencimientoLicencia" [(ngModel)] = "pilot.fechaVencimientoLicencia">
+    <mat-label>Fecha Vencimiento Licencia</mat-label>
+      <input 
+        required
+        type="text"
+        name="fechaVencimientoLicencia"
+        formControlName="fechaVencimientoLicencia"
+        matInput
+        placeholder="Digite la fecha de vencimiento de licencia del piloto"
+        [(ngModel)] = "pilot.fechaVencimientoLicencia"
+        [matDatepicker]="pickerFVL"
+      >
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="pickerFVL">
+        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+      </mat-datepicker-toggle>
+      <mat-datepicker #pickerFVL></mat-datepicker>
   </div>
  
  <div class="btns">

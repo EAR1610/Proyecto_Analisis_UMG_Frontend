@@ -29,18 +29,25 @@
                 [(ngModel)] = "pilot.apellido"
                 >
               </mat-form-field>
-              <mat-form-field class="w100" appearance="outline">
+
+              <mat-form-field>
                 <mat-label>Fecha de Nacimiento</mat-label>
-                <input
-                required
-                autofocus
-                type="text"
-                name="fechaNacimiento"
-                matInput
-                placeholder="Digite la fecha de nacimiento del piloto"
-                [(ngModel)] = "pilot.fechaNacimiento"
+                <input 
+                  required
+                  type="text"
+                  name="fechaNacimiento"
+                  matInput
+                  placeholder="Digite la fecha de nacimiento del piloto"
+                  [(ngModel)] = "pilot.fechaNacimiento"
+                  [matDatepicker]="picker"
                 >
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker">
+                  <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                </mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
               </mat-form-field>
+
               <mat-form-field class="w100" appearance="outline">
                 <mat-label>Nacionalidad</mat-label>
                 <input
@@ -60,22 +67,31 @@
                   type="text"
                   name="horasVuelo"
                   matInput
-                  placeholder="DIgite las horas de vuelo del piloto"
+                  placeholder="Digite las horas de vuelo del piloto"
                   [(ngModel)] = "pilot.horasVuelo"
+                  (input)="validateHorasVuelo($event)"
                 >
               </mat-form-field>
-              <mat-form-field appearance="outline">
+              
+              <mat-form-field>
                 <mat-label>Fecha Contratación</mat-label>
                 <input 
                   required
                   type="text"
                   name="fechaContratacion"
                   matInput
-                  placeholder="DIgite la fecha de contratación del piloto"
+                  placeholder="Digite la fecha de contratación del piloto"
                   [(ngModel)] = "pilot.fechaContratacion"
+                  [matDatepicker]="pickerFC"
                 >
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="pickerFC">
+                  <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                </mat-datepicker-toggle>
+                <mat-datepicker #pickerFC></mat-datepicker>
               </mat-form-field>
-              <mat-form-field appearance="outline">
+          
+              <mat-form-field>
                 <mat-label>Fecha Vencimiento Licencia</mat-label>
                 <input 
                   required
@@ -84,7 +100,13 @@
                   matInput
                   placeholder="Digite la fecha de vencimiento de licencia del piloto"
                   [(ngModel)] = "pilot.fechaVencimientoLicencia"
+                  [matDatepicker]="pickerFVL"
                 >
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="pickerFVL">
+                  <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                </mat-datepicker-toggle>
+                <mat-datepicker #pickerFVL></mat-datepicker>
               </mat-form-field>
                
 
