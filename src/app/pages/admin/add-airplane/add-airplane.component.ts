@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AirplaneService } from 'src/app/services/airplane.service';
@@ -19,11 +19,27 @@ export class AddAirplaneComponent implements OnInit{
     anioFabricacion :'',
   }
 
+  isNumberInput = "/[0-9]|\./";
+
   constructor(private airplaneService:AirplaneService, private snack:MatSnackBar, private router:Router){}
 
   ngOnInit(): void{
 
   }
+
+  validateCapacidad(event: any) {
+    const inputValue = event.target.value;
+    const isNumber = /^\d+$/.test(inputValue);
+
+    if (!isNumber) {
+      event.target.value = this.airplane.capacidad;
+      this.snack.open("Por favor, ingresar solamente números!",'',{
+        duration:3000
+      })
+    } else {
+      this.airplane.capacidad = inputValue;
+    }
+  } 
 
   formSubmit(){
     if(this.airplane.marca.trim() == '' || this.airplane.modelo == '' || this.airplane.capacidad == '' || this.airplane.fabricante == '' || this.airplane.anioFabricacion == ''){

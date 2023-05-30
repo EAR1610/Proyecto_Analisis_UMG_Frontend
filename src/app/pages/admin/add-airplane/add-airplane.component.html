@@ -39,6 +39,7 @@
                 matInput
                 placeholder="Digite la capacidad del avión"
                 [(ngModel)] = "airplane.capacidad"
+                (input)="validateCapacidad($event)"
                 >
               </mat-form-field>
               <mat-form-field class="w100" appearance="outline">
@@ -62,6 +63,7 @@
                   matInput
                   placeholder="DIgite la fecha de Fabricación del avión"
                   [(ngModel)] = "airplane.anioFabricacion"
+                  [pattern]="isNumberInput"
                 >
               </mat-form-field>
                
