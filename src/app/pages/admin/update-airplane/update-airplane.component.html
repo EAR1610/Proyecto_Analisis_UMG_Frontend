@@ -22,9 +22,24 @@
      <input type="text" formControlName="fabricante" class="form-control" id="fabricante" [(ngModel)] = "airplane.fabricante">
    </div>
  
-   <div class="form-group">
-     <label for="anio">Año de fabricación:</label>
-     <input type="text" formControlName="anioFabricacion" class="form-control" id="anioFabricacion" [(ngModel)] = "airplane.anioFabricacion">
+   <div class="form-group">     
+     <mat-label>Año de Fabricación</mat-label>
+        <input 
+          required
+          type="text"
+          name="anioFabricacion"
+          id="anioFabricacion"
+          matInput
+          placeholder="Digite la fecha de Fabricación del avión"
+          formControlName="anioFabricacion"
+          [(ngModel)] = "airplane.anioFabricacion"
+          [matDatepicker]="picker"                  
+        >
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker">
+          <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+        </mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
    </div>
 
    <div class="form-group">

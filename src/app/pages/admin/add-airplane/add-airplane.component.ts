@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AirplaneService } from 'src/app/services/airplane.service';
@@ -16,15 +16,20 @@ export class AddAirplaneComponent implements OnInit{
     modelo : '',
     capacidad : '',
     fabricante : '',
-    anioFabricacion :'',
+    anioFabricacion :null,
   }
 
   isNumberInput = "/[0-9]|\./";
+  showDatePicker = false;
 
   constructor(private airplaneService:AirplaneService, private snack:MatSnackBar, private router:Router){}
 
   ngOnInit(): void{
 
+  }
+
+  toggleDatePicker(show: boolean) {
+    this.showDatePicker = show;
   }
 
   validateCapacidad(event: any) {
@@ -42,7 +47,7 @@ export class AddAirplaneComponent implements OnInit{
   } 
 
   formSubmit(){
-    if(this.airplane.marca.trim() == '' || this.airplane.modelo == '' || this.airplane.capacidad == '' || this.airplane.fabricante == '' || this.airplane.anioFabricacion == ''){
+    if(this.airplane.marca.trim() == '' || this.airplane.modelo == '' || this.airplane.capacidad == '' || this.airplane.fabricante == '' || this.airplane.anioFabricacion == null){
       this.snack.open("La información del avión es requerida!!",'',{
         duration:3000
       })
@@ -56,7 +61,7 @@ export class AddAirplaneComponent implements OnInit{
         this.airplane.modelo = '';
         this.airplane.capacidad = '';
         this.airplane.fabricante = '';
-        this.airplane.anioFabricacion = '';
+        this.airplane.anioFabricacion = null;
         Swal.fire('Avión agregado','El avión ha sido agregada con éxito','success');
         this.router.navigate(['/admin/airplanes']);
       },

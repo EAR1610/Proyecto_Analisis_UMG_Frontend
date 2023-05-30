@@ -1,7 +1,7 @@
 <mat-card>
   <mat-list>
     <div mat-subheader>
-      Todos los aviones
+      <h1>TODOS LOS AVIONES</h1>
     </div>
     <div class="mat-elevation-z8" style="margin-top: 10px">
       <table mat-table [dataSource]="airplanes" class="mat-elevation-z8">
@@ -33,7 +33,7 @@
         </ng-container>
 
         <ng-container matColumnDef="anioFabricacion">
-          <th mat-header-cell *matHeaderCellDef> Fecha de Fabricación </th>
+          <th mat-header-cell *matHeaderCellDef> Fecha de Fabricación (YYYY/MM/DD) </th>
           <td mat-cell *matCellDef="let element"> {{element.anioFabricacion}} </td>
         </ng-container>
 

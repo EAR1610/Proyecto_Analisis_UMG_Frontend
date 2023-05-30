@@ -54,19 +54,23 @@
                 [(ngModel)] = "airplane.fabricante"
                 >
               </mat-form-field>  
-              <mat-form-field appearance="fill">
+              <mat-form-field>
                 <mat-label>Año de Fabricación</mat-label>
                 <input 
                   required
                   type="text"
                   name="anioFabricacion"
                   matInput
-                  placeholder="DIgite la fecha de Fabricación del avión"
-                  [(ngModel)] = "airplane.anioFabricacion"
-                  [pattern]="isNumberInput"
+                  placeholder="Digite la fecha de Fabricación del avión"
+                  [(ngModel)]="airplane.anioFabricacion"
+                  [matDatepicker]="picker"                  
                 >
-              </mat-form-field>
-               
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker">
+                  <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                </mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>                           
 
               <div class="btns">
                 <button type="submit" mat-raised-button color="primary">AGREGAR AVION</button>
