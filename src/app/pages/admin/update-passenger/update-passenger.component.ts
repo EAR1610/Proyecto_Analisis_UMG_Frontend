@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PassengerService } from 'src/app/services/passenger.service';
@@ -34,6 +34,23 @@ export class UpdatePassengerComponent implements OnInit{
     const pasajero = history.state.pasajero;
     this.pasajero = pasajero;
     console.log(this.pasajero);
+  }
+
+  @ViewChild('numberIdentification') numberIdentification!: ElementRef<HTMLInputElement>;
+
+  onIdentificationSelect(event: any){
+    const selectedIdentification = event.value; 
+
+    if(selectedIdentification == 'DPI'){
+      this.numberIdentification.nativeElement.setAttribute('maxlength', '13');
+      this.numberIdentification.nativeElement.setAttribute('pattern', '^[0-9]{13}$');
+      
+    } else {
+      this.numberIdentification.nativeElement.setAttribute('maxlength', '9');
+      this.numberIdentification.nativeElement.setAttribute('pattern', '/^[A-Z]{3}[0-9]{6}$/');
+
+    }
+    
   }
 
   onSubmit(){

@@ -22,14 +22,17 @@
     <input type="text" formControlName="nacionalidad" class="form-control" id="nacionalidad" [(ngModel)] = "pasajero.nacionalidad">
   </div>
 
-  <div class="form-group">
-   <label for="fabricante">Tipo de Identificación:</label>
-   <input type="text" formControlName="tipoIdentificacion" class="form-control" id="tipoIdentificacion" [(ngModel)] = "pasajero.tipoIdentificacion">
- </div>
+  <mat-form-field>
+    <mat-label>Seleccionar Tipo de Identificacion</mat-label>
+    <mat-select formControlName="tipoIdentificacion" name="selectedIdentification" [(ngModel)]="pasajero.tipoIdentificacion"  (selectionChange)="onIdentificationSelect($event)">
+      <mat-option value="DPI">DPI</mat-option>
+      <mat-option value="Pasaporte">Pasaporte</mat-option>
+    </mat-select>
+  </mat-form-field>
 
  <div class="form-group">
     <label for="fabricante">Número de Identificación:</label>
-    <input type="text" formControlName="numeroIdentificacion" class="form-control" id="numeroIdentificacion" [(ngModel)] = "pasajero.numeroIdentificacion">
+    <input type="text" formControlName="numeroIdentificacion" class="form-control" id="numeroIdentificacion" [(ngModel)] = "pasajero.numeroIdentificacion" #numberIdentification>
   </div>
 
   <div class="form-group">
@@ -39,7 +42,7 @@
  
  <div class="btns">
    <button type="submit" mat-raised-button color="primary">EDITAR PASAJERO</button>
-   <button routerLink="/admin/pilots" mat-raised-button color="accent">REGRESAR</button>
+   <button routerLink="/admin/passengers" mat-raised-button color="accent">REGRESAR</button>
  </div>
 </form>
 

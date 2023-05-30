@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { PassengerService } from 'src/app/services/passenger.service';
@@ -29,6 +29,27 @@ export class AddPassengerComponent implements OnInit {
 
   ngOnInit(): void {
     
+  }
+
+  @ViewChild('numberIdentification') numberIdentification!: ElementRef<HTMLInputElement>;
+
+  // ngAfterViewInit() {
+  //   this.identificationInput = document.getElementsByName('#numberIdentification');
+  // }
+  
+
+  onIdentificationSelect(event: any){
+    const selectedIdentification = event.value; 
+
+    if(selectedIdentification == 'DPI'){
+      this.numberIdentification.nativeElement.setAttribute('maxlength', '13');
+      this.numberIdentification.nativeElement.setAttribute('pattern', '^[0-9]{13}$');
+      console.log('ES DPI');
+    } else {
+      this.numberIdentification.nativeElement.setAttribute('maxlength', '9');
+      this.numberIdentification.nativeElement.setAttribute('pattern', '/^[A-Z]{3}[0-9]{6}$/');
+    }
+    console.log(event.value);
   }
 
   formSubmit(){

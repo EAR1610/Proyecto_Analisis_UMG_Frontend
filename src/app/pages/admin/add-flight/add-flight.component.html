@@ -51,9 +51,9 @@
                 matInput
                 placeholder="Digite la fecha de llegada del vuelo"
                 [(ngModel)] = "flight.fechaLlegada"
-                >
-                
+                >                
               </mat-form-field>
+              
                 <mat-form-field>
                     <mat-label>Seleccionar Avion</mat-label>
                     <mat-select name="selectedAirplane" [(ngModel)]="selectedAirplane">
@@ -62,6 +62,7 @@
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
+
                 <mat-form-field>
                   <mat-label>Seleccionar Piloto</mat-label>
                   <mat-select name="selectedPilot" [(ngModel)]="selectedPilot">

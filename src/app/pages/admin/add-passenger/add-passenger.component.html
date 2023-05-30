@@ -52,27 +52,27 @@
                 placeholder="Digite la nacionalidad del pasajero"
                 [(ngModel)] = "passenger.nacionalidad"
                 >
-              </mat-form-field>                
-              <mat-form-field appearance="outline">
+              </mat-form-field>                              
+              
+              <mat-form-field>
                 <mat-label>Tipo de Identificación</mat-label>
-                <input 
-                  required
-                  type="text"
-                  name="tipoIdentificacion"
-                  matInput
-                  placeholder="Digite el tipo de identificación del pasajero"
-                  [(ngModel)] = "passenger.tipoIdentificacion"
-                >
+                <mat-select [(ngModel)] = "passenger.tipoIdentificacion" name="selectedIdentification" (selectionChange)="onIdentificationSelect($event)">
+                  <mat-option value="DPI">DPI</mat-option>
+                  <mat-option value="Pasaporte">Pasaporte</mat-option>
+                </mat-select>
               </mat-form-field>
+
               <mat-form-field appearance="outline">
                 <mat-label>Número de Identificación del Pasajero</mat-label>
                 <input 
                   required
+                  
                   type="text"
                   name="numeroIdentificacion"
                   matInput
                   placeholder="Digite el Número de Identificación del pasajero"
                   [(ngModel)] = "passenger.numeroIdentificacion"
+                  #numberIdentification
                 >
               </mat-form-field>
 
