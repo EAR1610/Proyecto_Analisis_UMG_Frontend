@@ -1,5 +1,6 @@
 import { Component , OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { PilotService } from 'src/app/services/pilot.service';
 import Swal from 'sweetalert2';
@@ -17,7 +18,8 @@ export class UpdatePilotComponent implements OnInit{
   constructor(
     private pilotService : PilotService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private snack:MatSnackBar,
   ) {
     this.pilotForm = this.fb.group({
       id: ['', Validators.required],
@@ -51,6 +53,15 @@ export class UpdatePilotComponent implements OnInit{
       fechaContratacion: formData.fechaContratacion,
       fechaVencimientoLicencia: formData.fechaVencimientoLicencia,
     };
+
+    if(updatedPilot.nombre = '' || updatedPilot.apellido == '' || updatedPilot.fechaNacimiento == '' || updatedPilot.nacionalidad == '' || updatedPilot.horasVuelo == '' || updatedPilot.fechaContratacion == '' || updatedPilot.fechaVencimientoLicencia == ''){
+      this.snack.open('Debes completar todos los campos', 'Cerrar', {
+        duration: 3000
+      })
+
+      return;
+    }
+
     this.pilotService.editPilot(updatedPilot).subscribe( res => {
       this.router.navigate(['/admin/pilots']);
     });

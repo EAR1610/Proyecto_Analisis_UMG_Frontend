@@ -6,7 +6,7 @@
           <div class="col-md-8 offset-md-2">
             <form (ngSubmit)= "formSubmit()">                               
               <mat-form-field class="w100" appearance="outline">
-                <mat-label>Lugar Origen</mat-label>
+                <mat-label>Lugar Origen: </mat-label>
                 <input
                 required
                 autofocus
@@ -18,7 +18,7 @@
                 >
               </mat-form-field>
               <mat-form-field class="w100" appearance="outline">
-                <mat-label>Lugar Destino</mat-label>
+                <mat-label>Lugar Destino: </mat-label>
                 <input
                 required
                 autofocus
@@ -29,29 +29,41 @@
                 [(ngModel)] = "flight.lugarDestino"
                 >
               </mat-form-field>
-              <mat-form-field class="w100" appearance="outline">
-                <mat-label>Fecha de Salida</mat-label>
+              
+              <mat-form-field>
+                <mat-label>Fecha Salida: </mat-label>
                 <input
                 required
-                autofocus
                 type="text"
                 name="fechaSalida"
                 matInput
-                placeholder="Digite la fecha de Salida del vuelo"
+                placeholder="Digite la fecha de salida del Vuelo"
                 [(ngModel)] = "flight.fechaSalida"
+                [matDatepicker]="pickerFS"
                 >
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="pickerFS">
+                  <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                </mat-datepicker-toggle>
+                <mat-datepicker #pickerFS></mat-datepicker>
               </mat-form-field>
-              <mat-form-field class="w100" appearance="outline">
-                <mat-label>Fecha de Llegada</mat-label>
+            
+              <mat-form-field>
+                <mat-label>Fecha de Llegada: </mat-label>
                 <input
                 required
-                autofocus
                 type="text"
                 name="fechaLlegada"
                 matInput
                 placeholder="Digite la fecha de llegada del vuelo"
                 [(ngModel)] = "flight.fechaLlegada"
-                >                
+                [matDatepicker]="pickerFLl"
+                >
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="pickerFLl">
+                  <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                </mat-datepicker-toggle>
+                <mat-datepicker #pickerFLl></mat-datepicker>
               </mat-form-field>
               
                 <mat-form-field>

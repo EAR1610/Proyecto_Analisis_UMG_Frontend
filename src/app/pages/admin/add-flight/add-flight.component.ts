@@ -22,7 +22,7 @@ export class AddFlightComponent implements OnInit{
     lugarOrigen : '',
     lugarDestino : '',
     fechaSalida : '',
-    fechaLlegada : '',
+    fechaLlegada : '',    
   }
 
   constructor(

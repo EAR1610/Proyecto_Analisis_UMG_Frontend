@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AirplaneService } from 'src/app/services/airplane.service';
 import { FlightService } from 'src/app/services/flight.service';
@@ -13,7 +14,6 @@ import Swal from 'sweetalert2';
 })
 export class UpdateFlightComponent implements OnInit{
 
-
   pilots: any[] = [];
   airplanes: any[]  = [];
   flight: any = {};
@@ -26,7 +26,8 @@ export class UpdateFlightComponent implements OnInit{
     private pilotService:PilotService,
     private airplaneService:AirplaneService,
     private fb:FormBuilder,
-    private router:Router
+    private router:Router,
+    private snack:MatSnackBar,
   ) {
     this.flightForm = this.fb.group({
       id: ['', Validators.required],
@@ -40,9 +41,12 @@ export class UpdateFlightComponent implements OnInit{
   ngOnInit(): void {
     this.cargarPilotos();
     this.cargarAviones();
-    const flight = history.state.vuelo;
-    console.log(history.state);
-    this.flight = flight;
+    const flight = history.state.vuelo;    
+    const { marca } = history.state.vuelo.avion;
+    this.flight = {
+      ...flight,
+      marca
+    };
     console.log(this.flight);
   }
 
@@ -88,7 +92,15 @@ export class UpdateFlightComponent implements OnInit{
         pilotoId: this.selectedPilot?.pilotoId || null,
       }
     };
-    console.log(updatedFlight);    
+    console.log(updatedFlight);
+    
+    if(updatedFlight.lugarOrigen == '' || updatedFlight.lugarDestino == '' || updatedFlight.fechaSalida == '' || updatedFlight.fechaLlegada == ''){
+      this.snack.open('Debes completar todos los campos', 'Cerrar', {
+        duration: 3000
+      })
+      
+      return;
+    }
     
     this.flightService.editFlight(updatedFlight).subscribe( res => {
       this.router.navigate(['/admin/flights']);

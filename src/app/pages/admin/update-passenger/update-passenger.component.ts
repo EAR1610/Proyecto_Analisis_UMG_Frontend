@@ -84,6 +84,16 @@ export class UpdatePassengerComponent implements OnInit{
       numeroIdentificacion: formData.numeroIdentificacion,
       titulo: formData.titulo,
     };
+
+    if(updatePassenger.apellido == '' || updatePassenger.apellido == '' || updatePassenger.fechaNacimiento == '' || updatePassenger.nacionalidad == '' || updatePassenger.tipoIdentificacion == '' || updatePassenger.numeroIdentificacion == '' || updatePassenger.titulo == ''){
+      this.snack.open('Debes completar todos los campos', 'Cerrar', {
+        duration: 3000
+      })
+
+      return;
+    }
+
+
     this.passengerService.editPassenger(updatePassenger).subscribe( res => {
       this.router.navigate(['/admin/passengers']);
     });

@@ -36,14 +36,25 @@ export class AddPassengerComponent implements OnInit {
   validateNumI(event: any) {
     const inputValue = event.target.value;
     const isNumber = /^\d+$/.test(inputValue);
+    const isPassport = /^[A-Z]{3}[0-9]{6}$/.test(inputValue);
     
     if (!isNumber && this.passenger.tipoIdentificacion === 'DPI') {
-      event.target.value = this.passenger.numeroIdentificacion;
       this.snack.open("Por favor, ingresar solamente números!",'',{
         duration:3000
-      });      
+      });
       
+    } else {      
+      event.target.value = this.passenger.numeroIdentificacion;
+      
+    } 
+    
+    if(!isPassport && this.passenger.tipoIdentificacion === 'Pasaporte') {
+      this.snack.open("Por favor, El patrón del Pasaporte es: 3 Letras y 6 dígitos",'',{
+        duration:3000
+      });
+
     } else {
+      
       this.passenger.numeroIdentificacion = inputValue;
     }
   }

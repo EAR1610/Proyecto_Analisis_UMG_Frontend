@@ -12,24 +12,55 @@
    <input type="text" formControlName="lugarDestino" class="form-control" id="lugarDestino" [(ngModel)] = "flight.lugarDestino">
  </div>
 
-  <div class="form-group">
-    <label for="fabricante">Fecha de Salida:</label>
-    <input type="text" formControlName="fechaSalida" class="form-control" id="fechaSalida" [(ngModel)] = "flight.fechaSalida">
+  <div class="form-group">    
+    <mat-label>Fecha de Salida: </mat-label>
+      <input 
+        required
+        type="text"
+        name="fechaSalida"
+        id="fechaSalida"
+        matInput
+        placeholder="Digite la fecha de Salida del Vuelo"
+        formControlName="fechaSalida"
+        [(ngModel)] = "flight.fechaSalida"
+        [matDatepicker]="pickerFS"
+      >
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="pickerFS">
+        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+      </mat-datepicker-toggle>
+      <mat-datepicker #pickerFS></mat-datepicker>
   </div>
 
   <div class="form-group">
-   <label for="fabricante">Fecha de Llegada:</label>
-   <input type="text" formControlName="fechaLlegada" class="form-control" id="fechaLlegada" [(ngModel)] = "flight.fechaLlegada">
+    <mat-label>Fecha de Llegada: </mat-label>
+    <input 
+      required
+      type="text"
+      name="fechaLlegada"
+      id="fechaLlegada"
+      matInput
+      placeholder="Digite la fecha de Llegada del Vuelo"
+      formControlName="fechaLlegada"
+      [(ngModel)] = "flight.fechaLlegada"
+      [matDatepicker]="pickerFLl"
+    >
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="pickerFLl">
+      <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+    </mat-datepicker-toggle>
+    <mat-datepicker #pickerFLl></mat-datepicker>
  </div>
 
-    <mat-form-field>
-        <mat-label>Seleccionar Avion</mat-label>
-        <mat-select name="selectedAirplane" [(ngModel)]="selectedAirplane" [ngModelOptions]="{standalone: true}">
-            <mat-option *ngFor="let airplane of airplanes" [value]="airplane">
-            {{airplane.marca}}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
+   <mat-form-field>
+    <mat-label>Seleccionar Avion</mat-label>
+    <mat-select name="selectedAirplane" [(ngModel)]="selectedAirplane" [ngModelOptions]="{standalone: true}">
+      <mat-option *ngFor="let airplane of airplanes" [value]="airplane">
+        {{airplane.marca}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+ 
     <mat-form-field>
     <mat-label>Seleccionar Piloto</mat-label>
     <mat-select name="selectedPilot" [(ngModel)]="selectedPilot" [ngModelOptions]="{standalone: true}">

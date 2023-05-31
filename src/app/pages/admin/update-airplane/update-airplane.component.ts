@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { AirplaneService } from 'src/app/services/airplane.service';
 import Swal from 'sweetalert2';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-update-airplane',
@@ -18,7 +19,8 @@ export class UpdateAirplaneComponent implements OnInit{
       private airplaneService:AirplaneService,
       private route:ActivatedRoute,
       private fb: FormBuilder,
-      private router:Router      
+      private router:Router,
+      private snack:MatSnackBar,      
     ) {    
       this.avionForm = this.fb.group({
         id: ['', Validators.required],
@@ -48,6 +50,15 @@ export class UpdateAirplaneComponent implements OnInit{
         fabricante: formData.fabricante,
         anioFabricacion: formData.anioFabricacion
       };
+
+      if(updatedAirplane.marca == '' || updatedAirplane.modelo == '' || updatedAirplane.capacidad == '' || updatedAirplane.fabricante == '' || updatedAirplane.anioFabricacion == ''){
+        this.snack.open('Debes completar todos los campos', 'Cerrar', {
+          duration: 3000
+        })
+  
+        return;
+      }
+
       this.airplaneService.editAirplane(updatedAirplane).subscribe(res => {
         this.router.navigate(['/admin/airplanes']);
       });
