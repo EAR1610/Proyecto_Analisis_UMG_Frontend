@@ -33,23 +33,34 @@ export class AddPassengerComponent implements OnInit {
 
   @ViewChild('numberIdentification') numberIdentification!: ElementRef<HTMLInputElement>;
 
-  // ngAfterViewInit() {
-  //   this.identificationInput = document.getElementsByName('#numberIdentification');
-  // }
-  
+  validateNumI(event: any) {
+    const inputValue = event.target.value;
+    const isNumber = /^\d+$/.test(inputValue);
+    
+    if (!isNumber && this.passenger.tipoIdentificacion === 'DPI') {
+      event.target.value = this.passenger.numeroIdentificacion;
+      this.snack.open("Por favor, ingresar solamente números!",'',{
+        duration:3000
+      });      
+      
+    } else {
+      this.passenger.numeroIdentificacion = inputValue;
+    }
+  }
 
   onIdentificationSelect(event: any){
-    const selectedIdentification = event.value; 
+    const selectedIdentification = event.value;
+    
+    this.passenger.numeroIdentificacion = '';
 
     if(selectedIdentification == 'DPI'){
       this.numberIdentification.nativeElement.setAttribute('maxlength', '13');
       this.numberIdentification.nativeElement.setAttribute('pattern', '^[0-9]{13}$');
-      console.log('ES DPI');
+
     } else {
       this.numberIdentification.nativeElement.setAttribute('maxlength', '9');
       this.numberIdentification.nativeElement.setAttribute('pattern', '/^[A-Z]{3}[0-9]{6}$/');
     }
-    console.log(event.value);
   }
 
   formSubmit(){

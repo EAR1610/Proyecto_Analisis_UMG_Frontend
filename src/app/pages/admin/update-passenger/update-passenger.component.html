@@ -13,8 +13,23 @@
   </div>
 
   <div class="form-group">
-   <label for="modelo">Fecha Nacimiento:</label>
-   <input type="text" formControlName="fechaNacimiento" class="form-control" id="fechaNacimiento" [(ngModel)] = "pasajero.fechaNacimiento">
+     <mat-label>Fecha de Nacimiento</mat-label>
+      <input 
+        required
+        type="text"
+        name="fechaNacimiento"
+        id="fechaNacimiento"
+        matInput
+        placeholder="Digite la fecha de nacimiento del pasajero"
+        formControlName="fechaNacimiento"
+        [(ngModel)] = "pasajero.fechaNacimiento"
+        [matDatepicker]="pickerFN"
+      >
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="pickerFN">
+        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+      </mat-datepicker-toggle>
+      <mat-datepicker #pickerFN></mat-datepicker> 
  </div>
 
   <div class="form-group">
@@ -32,7 +47,7 @@
 
  <div class="form-group">
     <label for="fabricante">Número de Identificación:</label>
-    <input type="text" formControlName="numeroIdentificacion" class="form-control" id="numeroIdentificacion" [(ngModel)] = "pasajero.numeroIdentificacion" #numberIdentification>
+    <input type="text" formControlName="numeroIdentificacion" class="form-control" id="numeroIdentificacion" [(ngModel)] = "pasajero.numeroIdentificacion" #numberIdentification (input)="validateNumberId($event)">
   </div>
 
   <div class="form-group">

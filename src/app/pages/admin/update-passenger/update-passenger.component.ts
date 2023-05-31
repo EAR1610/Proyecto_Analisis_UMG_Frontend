@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { PassengerService } from 'src/app/services/passenger.service';
 import Swal from 'sweetalert2';
@@ -13,11 +14,13 @@ export class UpdatePassengerComponent implements OnInit{
 
   pasajero: any = {};
   passengerForm: FormGroup;
+  
 
   constructor(
     private passengerService: PassengerService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private snack: MatSnackBar,
   ) {
     this.passengerForm = this.fb.group({
       id: ['', Validators.required],
@@ -41,7 +44,7 @@ export class UpdatePassengerComponent implements OnInit{
   onIdentificationSelect(event: any){
     const selectedIdentification = event.value; 
 
-    if(selectedIdentification == 'DPI'){
+    if(selectedIdentification === 'DPI'){
       this.numberIdentification.nativeElement.setAttribute('maxlength', '13');
       this.numberIdentification.nativeElement.setAttribute('pattern', '^[0-9]{13}$');
       
@@ -51,6 +54,21 @@ export class UpdatePassengerComponent implements OnInit{
 
     }
     
+  }
+
+  validateNumberId(event: any) {
+    const inputValue = event.target.value;
+    const isNumber = /^\d+$/.test(inputValue);
+
+    if (!isNumber && this.pasajero.tipoIdentificacion === 'DPI') {
+      event.target.value = this.pasajero.numeroIdentificacion;
+      this.snack.open("Por favor, ingresar solamente números!",'',{
+        duration:3000
+      })
+
+    } else {
+      this.pasajero.numeroIdentificacion = inputValue;
+    }
   }
 
   onSubmit(){

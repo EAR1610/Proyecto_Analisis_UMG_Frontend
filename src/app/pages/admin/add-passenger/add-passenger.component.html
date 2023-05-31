@@ -29,18 +29,25 @@
                 [(ngModel)] = "passenger.apellido"
                 >
               </mat-form-field>
-              <mat-form-field class="w100" appearance="outline">
+
+              <mat-form-field>
                 <mat-label>Fecha de Nacimiento</mat-label>
                 <input
                 required
-                autofocus
                 type="text"
                 name="fechaNacimiento"
                 matInput
                 placeholder="Digite la fecha de nacimiento del piloto"
                 [(ngModel)] = "passenger.fechaNacimiento"
+                [matDatepicker]="pickerFN"
                 >
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="pickerFN">
+                  <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                </mat-datepicker-toggle>
+                <mat-datepicker #pickerFN></mat-datepicker>
               </mat-form-field>
+
               <mat-form-field class="w100" appearance="outline">
                 <mat-label>Nacionalidad</mat-label>
                 <input
@@ -65,13 +72,13 @@
               <mat-form-field appearance="outline">
                 <mat-label>Número de Identificación del Pasajero</mat-label>
                 <input 
-                  required
-                  
+                  required                  
                   type="text"
                   name="numeroIdentificacion"
                   matInput
                   placeholder="Digite el Número de Identificación del pasajero"
                   [(ngModel)] = "passenger.numeroIdentificacion"
+                  (input)="validateNumI($event)"
                   #numberIdentification
                 >
               </mat-form-field>
