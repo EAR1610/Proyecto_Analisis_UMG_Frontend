@@ -54,7 +54,7 @@ export class UpdatePilotComponent implements OnInit{
       fechaVencimientoLicencia: formData.fechaVencimientoLicencia,
     };
 
-    if(updatedPilot.nombre = '' || updatedPilot.apellido == '' || updatedPilot.fechaNacimiento == '' || updatedPilot.nacionalidad == '' || updatedPilot.horasVuelo == '' || updatedPilot.fechaContratacion == '' || updatedPilot.fechaVencimientoLicencia == ''){
+    if(updatedPilot.nombre == '' || updatedPilot.apellido == '' || updatedPilot.fechaNacimiento == '' || updatedPilot.nacionalidad == '' || updatedPilot.horasVuelo == '' || updatedPilot.fechaContratacion == '' || updatedPilot.fechaVencimientoLicencia == ''){
       this.snack.open('Debes completar todos los campos', 'Cerrar', {
         duration: 3000
       })

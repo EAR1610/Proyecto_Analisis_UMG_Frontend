@@ -95,5 +95,9 @@ export class ReservationComponent implements OnInit{
       }
     })
   }
+
+  descargarReservacion(reservaId:number){
+    
+  }
 }
 
