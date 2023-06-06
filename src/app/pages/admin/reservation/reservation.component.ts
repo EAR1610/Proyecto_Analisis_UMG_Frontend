@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ReservationService } from 'src/app/services/reservation.service';
+import { jsPDF } from 'jspdf';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -97,7 +98,33 @@ export class ReservationComponent implements OnInit{
   }
 
   descargarReservacion(reservaId:number){
-    
+    this.reservationService.listReservation(reservaId).subscribe((reservacion: any) => {      
+      const {
+        pasajero: { titulo, nombre, fechaNacimiento, nacionalidad },
+        nombreClase,
+        precioClase,
+        numeroAsiento,
+        numeroEmbarque,
+        vuelo: { lugarOrigen, lugarDestino, fechaSalida, fechaLlegada }
+      } = reservacion;
+      const doc = new jsPDF();
+
+      doc.setFontSize(16);
+      doc.text(`      TagAirlines!`, 10, 10);
+      doc.setFontSize(12);
+      doc.text(`${titulo}: ${nombre}`, 10, 15);
+      doc.text(`${fechaNacimiento} ${nacionalidad}`, 10, 20);
+      doc.text(`Nombre Clase: ${nombreClase}`, 10, 25);
+      doc.text(`Precion Clase: ${precioClase}`, 10, 30);
+      doc.text(`Número de Asiento: ${numeroAsiento}`, 10, 35);
+      doc.text(`numeroEmbarque: ${numeroEmbarque}`, 10, 40);
+      doc.text(`Lugar de Origen: ${lugarOrigen}`, 10, 45);
+      doc.text(`Lugar de destino: ${lugarDestino}`, 10, 50);
+      doc.text(`Fecha de Salida: ${fechaSalida}`, 10, 55);
+      doc.text(`Fecha de Llegada: ${fechaLlegada}`, 10, 60);
+
+      doc.save("reservacion.pdf");
+    })
   }
 }
 
