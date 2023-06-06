@@ -4,7 +4,16 @@
       <div class="bootstrap-wrapper">
         <div class="row">
           <div class="col-md-8 offset-md-2">
-            <form (ngSubmit)= "formSubmit()">                               
+            <form (ngSubmit)= "formSubmit()"> 
+              
+              <mat-form-field>
+                <mat-label>Seleccionar Pasajero: </mat-label>
+                <mat-select name="selectedPassenger" [(ngModel)]="selectedPassenger">
+                  <mat-option *ngFor="let passenger of passengers" [value]="passenger">
+                    {{passenger.nombre}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
               
               <mat-form-field>
                 <mat-label>Seleccionar Vuelo: </mat-label>
@@ -18,8 +27,7 @@
               <mat-form-field class="w100" appearance="outline">
                 <mat-label>Lugar Origen: </mat-label>
                   <input
-                  required
-                  autofocus
+                  required                  
                   type="text"
                   name="lugarOrigen"
                   matInput
@@ -31,8 +39,7 @@
               <mat-form-field class="w100" appearance="outline">
                 <mat-label>Lugar Destino</mat-label>
                 <input
-                required
-                autofocus
+                required                
                 type="text"
                 name="lugarDestino"
                 matInput
@@ -44,8 +51,7 @@
               <mat-form-field class="w100" appearance="outline">
                 <mat-label>Fecha de Salida: </mat-label>
                 <input
-                required
-                autofocus
+                required                
                 type="text"
                 name="fechaSalida"
                 matInput
@@ -57,8 +63,7 @@
               <mat-form-field class="w100" appearance="outline">
                 <mat-label>Fecha de Llegada: </mat-label>
                 <input
-                required
-                autofocus
+                required                
                 type="text"
                 name="fechaLlegada"
                 matInput
@@ -85,25 +90,18 @@
                 </mat-datepicker-toggle>
                 <mat-datepicker #pickerFR></mat-datepicker>
               </mat-form-field>
-              
+                          
               <mat-form-field class="w100" appearance="outline">
-                <mat-label>Número Asiento: </mat-label>
-                <input
-                required
-                autofocus
-                type="text"
-                name="numeroAsiento"
-                matInput
-                placeholder="Digite el número de asiento de la reserva"
-                [(ngModel)] = "reservation.numeroAsiento"
-                >                
-              </mat-form-field>
-
+                <mat-label>Número Asiento:</mat-label>
+                <mat-select name="numeroAsiento" [(ngModel)]="reservation.numeroAsiento">
+                  <mat-option *ngFor="let seat of seatList" [value]="seat">{{ seat }}</mat-option>
+                </mat-select>
+              </mat-form-field>         
+              
               <mat-form-field class="w100" appearance="outline">
                 <mat-label>Hora Embarque: </mat-label>
                 <input
-                required
-                autofocus
+                required                
                 type="text"
                 name="horaEmbarque"
                 matInput
@@ -113,10 +111,45 @@
               </mat-form-field>
 
               <mat-form-field class="w100" appearance="outline">
+                <mat-label>Puerta Embarque: </mat-label>
+                <input
+                required                
+                type="text"
+                name="puertaEmbarque"
+                matInput
+                placeholder="Digite la puerta de embarque de la reserva"
+                [(ngModel)] = "reservation.puertaEmbarque"
+                >                
+              </mat-form-field>
+
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Clase: </mat-label>
+                <input
+                required                
+                type="text"
+                name="clase"
+                matInput
+                placeholder="Digite la clase de la reserva"
+                [(ngModel)] = "reservation.clase"
+                >                
+              </mat-form-field>
+
+              <mat-form-field class="w100" appearance="outline">
+                <mat-label>Precio Clase: </mat-label>
+                <input
+                required                
+                type="text"
+                name="precioClase"
+                matInput
+                placeholder="Digite el precio de la clase de la reserva"
+                [(ngModel)] = "reservation.precioClase"
+                >                
+              </mat-form-field>
+
+              <mat-form-field class="w100" appearance="outline">
                 <mat-label>Número de Mochila: </mat-label>
                 <input
-                required
-                autofocus
+                required              
                 type="text"
                 name="numeroMochila"
                 matInput
@@ -128,8 +161,7 @@
               <mat-form-field class="w100" appearance="outline">
                 <mat-label>Peso de las mochilas: </mat-label>
                 <input
-                required
-                autofocus
+                required                
                 type="text"
                 name="pesoMochila"
                 matInput

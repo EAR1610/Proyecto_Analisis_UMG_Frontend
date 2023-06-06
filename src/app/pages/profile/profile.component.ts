@@ -13,15 +13,7 @@ export class ProfileComponent implements OnInit{
   user:any = null;
 
   ngOnInit(): void {
-    this.user = this.loginService.getUser();
-    /*this.loginService.getCurrentUser().subscribe(
-      (user:any) => {
-        this.user = user;
-      },
-      (error) => {
-        alert("error");
-      }
-    )*/
+    this.user = this.loginService.getUser();    
   }
 
 }
