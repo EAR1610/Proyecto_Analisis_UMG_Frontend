@@ -27,14 +27,14 @@ export class ReservationComponent implements OnInit{
         this.reservations = dato.map((reservation: any) => {
           const { nombre, apellido, nacionalidad } = reservation.pasajero;
           const { fechaSalida, fechaLlegada, piloto : { nombre: nombrePiloto } } = reservation.vuelo;
-          //const { username } = reservation.usuario;
+          const { username } = reservation.usuario;
 
           return {
             ...reservation,
             pasajero: `${nombre} ${apellido}`,
             fechaSalida,
             fechaLlegada,
-            //username,
+            username,
             piloto: `${nombrePiloto}`
           };
         });
