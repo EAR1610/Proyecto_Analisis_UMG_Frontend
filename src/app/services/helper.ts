@@ -1,2 +1,2 @@
-let baserURL = 'http://localhost:8080'
+let baserURL = 'http://154.53.44.29:8080'
 export default baserURL;
