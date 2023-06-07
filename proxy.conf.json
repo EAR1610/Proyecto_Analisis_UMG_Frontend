@@ -1,0 +1,7 @@
+{
+    "/api": {
+      "target": "http://154.53.44.29:8080",
+      "secure": false,
+      "changeOrigin": true
+    }
+  }
